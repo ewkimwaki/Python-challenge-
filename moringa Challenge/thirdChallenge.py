@@ -5,13 +5,18 @@ def solution(N):
     half_N = N // 2
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
-    result = ''.join([alphabet[i % 26] for i in range(half_N)])
+    # Create a string with all letters in alphabetical order
+    all_letters = ''.join(alphabet)
 
-    result += result
+    # Repeat the string to get the desired length
+    result = all_letters * (half_N // 26)
+
+    # Add any remaining letters to the result
+    result += all_letters[:half_N % 26]
 
     return result
 
 # Test examples
-print(f'Test 1: {solution(3)}') 
+print(f'Test 1: {solution(3)}')
 print(f'Test 2: {solution(5)}')
 print(f'Test 3: {solution(30)}')
